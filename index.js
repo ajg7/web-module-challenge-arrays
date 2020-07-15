@@ -144,9 +144,9 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(arr, newArr){
-
-
+function copy(arr, newArr) {
+    newArr = [...arr]
+    return newArr
 }
 
 
@@ -176,7 +176,7 @@ function filterByWord(arr, flavor){
     return filteredArray;
 }
 
-console.log(filterByWord(originalFlavors,"Chocolate"));
+console.log(filterByWord(originalFlavors,"Lemon"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
@@ -190,12 +190,18 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(/*code here*/){
-
-    /*code here*/
-
+function getAverageWordLength(arr, word){
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(word)){
+            result.push(arr[i]);
+        }
+    }
+    let average = (result.length/arr.length); 
+    return average;
 }
 
+console.log(getAverageWordLength(originalFlavors,"Lemon"))
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
@@ -278,8 +284,14 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
-
-    /*code here*/
-
+function getRandomFlavors(arr1, arr2, arr3, arr4){
+    let giantArr = arr1.concat(arr2, arr3, arr4)
+    let randomFlavors = [];
+     for(let i = 0; i < 31; i++) {
+         let randomNum = Math.round(Math.random() * giantArr.length);
+         randomFlavors.push(giantArr[randomNum])
+     }
+     return randomFlavors;
 }
+
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors))
