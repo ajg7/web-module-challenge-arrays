@@ -174,7 +174,7 @@ function filterByWord(arr, flavor){
     return filteredArray;
 }
 
-console.log(filterByWord(originalFlavors,"Lemon"));
+console.log(filterByWord(originalFlavors,"Chocolate"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
