@@ -286,7 +286,7 @@ function getRandomFlavors(arr1, arr2, arr3, arr4){
     let giantArr = arr1.concat(arr2, arr3, arr4)
     let randomFlavors = [];
      for(let i = 0; i < 31; i++) {
-         let randomNum = Math.round(Math.random() * giantArr.length);
+         let randomNum = Math.round(Math.random() * (giantArr.length - 1));
          randomFlavors.push(giantArr[randomNum])
      }
      return randomFlavors;
